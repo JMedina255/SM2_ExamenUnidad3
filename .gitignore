@@ -27,3 +27,5 @@ web-build/
 # Mobile Native
 mobile/android/
 mobile/ios/
+
+node_modules/
