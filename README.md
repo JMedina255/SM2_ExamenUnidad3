@@ -16,21 +16,14 @@ A continuación se adjunta la estructura de directorios del proyecto evidenciand
 
 ![Estructura de Carpetas](docs/screenshots/workflows_structure.png)
 
-*(Nota: Si realiza la visualización en local o GitHub, guarde la captura de pantalla de su explorador de archivos con el nombre `workflows_structure.png` dentro de la carpeta `docs/screenshots/`)*
-
 ### B. Contenido del archivo `quality-check.yml`
 Captura que muestra la configuración final del pipeline de control de calidad unitaria utilizando las últimas versiones de las acciones oficiales y Node.js 22:
 
 ![Contenido de quality-check.yml](docs/screenshots/quality_check_yml.png)
 
-*(Nota: Guarde la captura del editor con el código de `quality-check.yml` con el nombre `quality_check_yml.png` dentro de la carpeta `docs/screenshots/`)*
-
 ### C. Ejecución del workflow en la pestaña Actions
 Evidencia de la correcta ejecución del pipeline `Quality Check` en GitHub Actions, corriendo exitosamente las 8 pruebas unitarias sin advertencias (warnings) de deprecación:
-
 ![Ejecución exitosa del Workflow](docs/screenshots/workflow_execution.png)
-
-*(Nota: Guarde la captura de pantalla de la pestaña Actions de GitHub con el nombre `workflow_execution.png` dentro de la carpeta `docs/screenshots/`)*
 
 ---
 
