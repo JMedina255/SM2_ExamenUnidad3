@@ -70,53 +70,51 @@ La plataforma está construida utilizando un esquema desacoplado y reactivo:
   * **Firebase Admin SDK:** Manejo de credenciales de Firebase, almacenamiento de imágenes y envío de notificaciones Push.
   * **Google API Client:** Integración automatizada para programar eventos en Google Calendar y generar salas de Google Meet.
   * **Gemini 1.5 Flash API:** Filtro inteligente NLP y procesamiento visual de imágenes para detectar transacciones monetarias.
-  * **BeautifulSoup4 & httpx:** Scraper asíncrono para la sincronización de alumnos desde el portal institucional de la UPT.
-
----
-
-## 📁 Estructura del Proyecto
-
-```bash
-SM2_ExamenUnidad3_Medina/
+  * **BeautifulSoup4 & httpx:** Scraper as�SM2_ExamenUnidad3_Medina/
 ├── README.md                           # Documento de descripción y guía del proyecto
-└── Red-Colaborativa-Estudiantil-main/
-    ├── DOCUMENTACION_PROYECTO.md        # Documentación maestra de reglas y roadmap
-    ├── diagramas_secuencia.puml        # Diagramas de secuencia en PlantUML
-    ├── backend/                         # Directorio del Backend (FastAPI)
-    │   ├── main.py                     # Archivo de inicio del servidor y WebSocket Endpoint
-    │   ├── database.py                 # Configuración de base de datos y sesión SQLAlchemy
-    │   ├── firebase_config.py          # Verificación de tokens de autenticación de Firebase
-    │   ├── ws_manager.py               # Gestor de conexiones concurrentes por WebSocket
-    │   ├── config.py                   # Ajustes y carga de variables de entorno (.env)
-    │   ├── dependencies.py             # Dependencias inyectables (ej. control de administradores)
-    │   ├── models/                     # Modelos de base de datos PostgreSQL
-    │   │   ├── user.py                 # Modelo User (XP, reputación, rol, nivel)
-    │   │   ├── doubt.py                # Modelo Doubt (estado, autor, me gusta)
-    │   │   ├── comment.py              # Modelo Comment (comentarios en las dudas)
-    │   │   ├── chat.py                 # Modelo ChatRoom y ChatMessage
-    │   │   ├── rating.py               # Calificaciones y estrellas de las mentorías
-    │   │   ├── university_student.py   # Registro de estudiantes scrapeados de la UPT
-    │   │   ├── career.py               # Carreras universitarias y códigos de dependencia UPT
-    │   │   ├── laboratory.py           # Laboratorios del campus físico de la UPT
-    │   │   ├── whitelist.py            # Lista blanca para accesos externos
-    │   │   ├── bookmark.py             # Marcadores o dudas guardadas por el usuario
-    │   │   ├── notification.py         # Notificaciones del sistema
-    │   │   └── report.py               # Reportes de contenido inapropiado
-    │   ├── routes/                     # Controladores y rutas HTTP (Endpoints)
-    │   │   ├── auth.py, doubts.py, users.py, comments.py, chat.py,
-    │   │   │   admin.py, verification.py, labs.py, bookmarks.py,
-    │   │   │   reports.py, notifications.py, upload.py
-    │   ├── schemas/                    # Validaciones de entrada/salida mediante Pydantic
-    │   └── services/                   # Lógica de negocio y APIs de terceros
-    │       ├── google_meet_service.py  # Creación de eventos y salas Meet en Google Calendar
-    │       ├── moderation_service.py   # Clasificación de contenido con Gemini API
-    │       ├── push_service.py         # Envío de notificaciones FCM push
-    │       └── upt_scraper.py          # Scraper institucional de estudiantes de la UPT
-    └── mobile/                          # Directorio de la App Móvil (Expo)
-        ├── App.js                      # Inicializador de la App React Native
-        ├── src/
-        │   ├── navigation/             # Flujos de navegación (AppNavigator, MainTabs)
-        │   ├── screens/                # Vistas de la interfaz de usuario
+├── DOCUMENTACION_PROYECTO.md           # Documentación maestra de reglas y roadmap
+├── diagramas_secuencia.puml           # Diagramas de secuencia en PlantUML
+├── backend/                            # Directorio del Backend (FastAPI)
+│   ├── main.py                        # Archivo de inicio del servidor y WebSocket Endpoint
+│   ├── database.py                    # Configuración de base de datos y sesión SQLAlchemy
+│   ├── firebase_config.py             # Verificación de tokens de autenticación de Firebase
+│   ├── ws_manager.py                  # Gestor de conexiones concurrentes por WebSocket
+│   ├── config.py                      # Ajustes y carga de variables de entorno (.env)
+│   ├── dependencies.py                # Dependencias inyectables (ej. control de administradores)
+│   ├── models/                        # Modelos de base de datos PostgreSQL
+│   │   ├── user.py                    # Modelo User (XP, reputación, rol, nivel)
+│   │   ├── doubt.py                   # Modelo Doubt (estado, autor, me gusta)
+│   │   ├── comment.py                 # Modelo Comment (comentarios en las dudas)
+│   │   ├── chat.py                    # Modelo ChatRoom y ChatMessage
+│   │   ├── rating.py                  # Calificaciones y estrellas de las mentorías
+│   │   ├── university_student.py      # Registro de estudiantes scrapeados de la UPT
+│   │   ├── career.py                  # Carreras universitarias y códigos de dependencia UPT
+│   │   ├── laboratory.py              # Laboratorios del campus físico de la UPT
+│   │   ├── whitelist.py               # Lista blanca para accesos externos
+│   │   ├── bookmark.py                # Marcadores o dudas guardadas por el usuario
+│   │   ├── notification.py            # Notificaciones del sistema
+│   │   └── report.py                  # Reportes de contenido inapropiado
+│   ├── routes/                        # Controladores y rutas HTTP (Endpoints)
+│   │   ├── auth.py, doubts.py, users.py, comments.py, chat.py,
+│   │   │   admin.py, verification.py, labs.py, bookmarks.py,
+│   │   │   reports.py, notifications.py, upload.py
+│   ├── schemas/                       # Validaciones de entrada/salida mediante Pydantic
+│   └── services/                      # Lógica de negocio y APIs de terceros
+│       ├── google_meet_service.py     # Creación de eventos y salas Meet en Google Calendar
+│       ├── moderation_service.py      # Clasificación de contenido con Gemini API
+│       ├── push_service.py            # Envío de notificaciones FCM push
+│       └── upt_scraper.py             # Scraper institucional de estudiantes de la UPT
+└── mobile/                             # Directorio de la App Móvil (Expo)
+    ├── App.js                         # Inicializador de la App React Native
+    ├── src/
+    │   ├── navigation/                # Flujos de navegación (AppNavigator, MainTabs)
+    │   ├── screens/                   # Vistas de la interfaz de usuario
+    │   │   ├── LoginScreen.js, HomeScreen.js, FeedScreen.js, DoubtDetailScreen.js,
+    │   │   │   PostScreen.js, ChatScreen.js, ChatListScreen.js, ProfileScreen.js,
+    │   │   │   LeaderboardScreen.js, AdminDashboardScreen.js, LabsScreen.js, etc.
+    │   ├── components/                # Componentes reusables (Splash, Loading, etc.)
+    │   └── services/                  # Clientes API HTTP y WebSocket para el backend
+```e la interfaz de usuario
         │   │   ├── LoginScreen.js, HomeScreen.js, FeedScreen.js, DoubtDetailScreen.js,
         │   │   │   PostScreen.js, ChatScreen.js, ChatListScreen.js, ProfileScreen.js,
         │   │   │   LeaderboardScreen.js, AdminDashboardScreen.js, LabsScreen.js, etc.
@@ -194,7 +192,7 @@ El proyecto gestiona las siguientes entidades relacionadas:
 
 1. Ingresa a la carpeta del frontend:
    ```bash
-   cd Red-Colaborativa-Estudiantil-main/mobile
+   cd mobile
    ```
 2. Instala los módulos de Node:
    ```bash
@@ -209,7 +207,7 @@ El proyecto gestiona las siguientes entidades relacionadas:
 ---
 
 ## 📄 Documentación Adicional
-Para leer a detalle las reglas de negocio detalladas del sistema de XP, el roadmap completo y diagramas de arquitectura, consulta la [Documentación Maestra](file:///Red-Colaborativa-Estudiantil-main/DOCUMENTACION_PROYECTO.md).
+Para leer a detalle las reglas de negocio detalladas del sistema de XP, el roadmap completo y diagramas de arquitectura, consulta la [Documentación Maestra](file:///DOCUMENTACION_PROYECTO.md).
 
 ---
 *© 2026 - Proyecto de Móviles II - Escuela de Ingeniería de Sistemas - UPT*
